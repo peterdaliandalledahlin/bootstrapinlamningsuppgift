@@ -439,10 +439,14 @@ body {
 
 /*--- START PROFILE ---*/
 #profile {
+    padding: 5rem 0;
+
     .image-container {
         position: relative;
     }
-
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
     .image {
         opacity: 1;
         display: block;
@@ -451,7 +455,6 @@ body {
         transition: .5s ease;
         backface-visibility: hidden;
     }
-
     .middle {
         transition: .5s ease;
         opacity: 0;
@@ -462,11 +465,9 @@ body {
         -ms-transform: translate(-50%, -50%);
         text-align: center;
     }
-
     .image-container:hover .image {
         opacity: 0.3;
     }
-
     .image-container:hover .middle {
         opacity: 1;
     }
