@@ -155,6 +155,8 @@ nav .nav-item a:hover::after {
 #login_btn, #register_btn {
   border: none;
   background: var(--abbred);
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
 }
 
 /*--- END MODAL ---*/
