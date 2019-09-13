@@ -244,7 +244,7 @@ nav .nav-item a:hover::after {
 }
 
 #jumbotron .jumbotron a {
-  background: var(--addred);
+  background: var(--abbred);
   border: none;
 }
 
@@ -420,55 +420,12 @@ nav .nav-item a:hover::after {
 }
 
 /*--- END SECTION SLOGAN ---*/
-/*--- START SECTION SLOGAN ---*/
+/*--- START SECTION CONTACT ---*/
 #contact {
   margin-top: 4rem;
 }
 
-/*--- END SECTION SLOGAN ---*/
-/*--- START MEDIA QUERIES ---*/
-@media (max-width: 576px) {
-  .fa-arrow-up {
-    font-size: 1rem;
-  }
-  .card {
-    margin-bottom: 1rem;
-  }
-  .jumbotron {
-    height: 100vh;
-    background: url(../images/bg_mobile.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  #jumbotron .jumbotron .container h1 {
-    font-size: 50px;
-  }
-  #power_text {
-    font-size: 10px;
-  }
-  #rotate {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .fa-arrow-up {
-    font-size: 1rem;
-  }
-  .card {
-    margin-bottom: 1rem;
-  }
-  .jumbotron {
-    height: 100vh;
-    background: url(../images/bg_mobile.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  #jumbotron .jumbotron .container h1 {
-    font-size: 50px;
-  }
-}
-
+/*--- END SECTION CONTACT ---*/
 /*--- START CONTACT SCROLL ---*/
 #contact_scroll {
   height: 120px;
@@ -524,7 +481,7 @@ nav .nav-item a:hover::after {
 }
 
 /*--- END PROFILE ---*/
-/*--- START FOOTER ---*/
+/*--- START FOOTER SECTION ---*/
 #footer {
   background: var(--abbred) !important;
 }
@@ -604,5 +561,41 @@ nav .nav-item a:hover::after {
   }
 }
 
-/*--- END FOOTER ---*/
+/*--- END FOOTER SECTION ---*/
+/*--- START MEDIA QUERIES ---*/
+@media (max-width: 576px) {
+  .fa-arrow-up {
+    font-size: 1rem;
+  }
+  #jumbotron .jumbotron .container h1 {
+    font-size: 50px;
+  }
+  #jumbotron .jumbotron h1 span {
+    display: inline-block;
+  }
+  .btn-responsive {
+    padding: 4px 4px;
+    font-size: 80%;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .fa-arrow-up {
+    font-size: 1rem;
+  }
+  #jumbotron .jumbotron .container h1 {
+    font-size: 50px;
+  }
+  #jumbotron .jumbotron h1 span {
+    display: inline-block;
+  }
+  .btn-responsive {
+    padding: 4px 9px;
+    font-size: 90%;
+    line-height: 1.2;
+  }
+}
+
+/*--- END MEDIA QUERIES ---*/
 /*# sourceMappingURL=custom.css.map */

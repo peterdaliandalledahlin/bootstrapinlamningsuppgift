@@ -238,7 +238,7 @@ body {
                 to { transform:rotate(-20deg); }
             }
              a {
-                background: var(--addred);
+                background: var(--abbred);
                 border: none;
             }
             a:hover {
@@ -379,12 +379,9 @@ body {
                 margin-top: 2rem;
                 margin-left: 2rem;
             }
-
         }
     }//end about id
 /*--- END ABOUT ---*/
-
-
 
 /*--- START BACK TO TOP BUTTON*/
     #back_to_top_btn {
@@ -401,7 +398,6 @@ body {
         cursor: pointer;
         padding: 15px;
         border-radius: 4px;
-
         &:hover {
             background-color: #555;
         }
@@ -414,56 +410,12 @@ body {
     }
 /*--- END SECTION SLOGAN ---*/
 
-/*--- START SECTION SLOGAN ---*/
+/*--- START SECTION CONTACT ---*/
     #contact {
         margin-top: 4rem;
     }
-/*--- END SECTION SLOGAN ---*/
+/*--- END SECTION CONTACT ---*/
 
-/*--- START MEDIA QUERIES ---*/
-    @media (max-width: 576px) {
-
-        .fa-arrow-up {
-            font-size: 1rem;
-        }
-        .card {
-            margin-bottom: 1rem;
-        }
-        .jumbotron {
-            height: 100vh;
-            background: url(../images/bg_mobile.gif);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        #jumbotron .jumbotron .container h1 {
-            font-size: 50px;
-        }
-        #power_text {
-            font-size: 10px
-        }
-        #rotate {
-            display: none;
-        }
-
-    }
-    @media (max-width: 768px) {
-
-        .fa-arrow-up {
-            font-size: 1rem;
-        }
-        .card {
-            margin-bottom: 1rem;
-        }
-        .jumbotron {
-            height: 100vh;
-            background: url(../images/bg_mobile.gif);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        #jumbotron .jumbotron .container h1 {
-            font-size: 50px;
-        }
-    }
 /*--- START CONTACT SCROLL ---*/
 #contact_scroll {
     height: 120px;
@@ -518,21 +470,9 @@ body {
         opacity: 1;
     }
 }
-        
 /*--- END PROFILE ---*/
 
-/*--- START FOOTER ---*/
-    // section {
-    //     padding: 60px 0;
-
-    //     .section-title {
-    //         text-align: center;
-    //         color: #007b5e;
-    //         margin-bottom: 50px;
-    //         text-transform: uppercase;
-    //     }
-    // }
-
+/*--- START FOOTER SECTION ---*/
 #footer {
     background: var(--abbred) !important;
 
@@ -602,11 +542,43 @@ body {
         }
     }
 }
-/*--- END FOOTER ---*/
+/*--- END FOOTER SECTION ---*/
 
+/*--- START MEDIA QUERIES ---*/
+@media (max-width: 576px) {
 
+    .fa-arrow-up {
+        font-size: 1rem;
+    }
+    #jumbotron .jumbotron .container h1 {
+        font-size: 50px;
+    }
+    #jumbotron .jumbotron h1 span {
+        display: inline-block;
+    }
+    .btn-responsive {
+        padding: 4px 4px;
+        font-size: 80%;
+        line-height: 1;
+      }
+}
+@media (max-width: 768px) {
 
-// START MEDIA QUERIES
-    // @media (min-width: 992px) {}
-    // @media (min-width: 1200px) {}
-//END MEDIA QUERIES 
+    .fa-arrow-up {
+        font-size: 1rem;
+    }
+    #jumbotron .jumbotron .container h1 {
+        font-size: 50px;
+    }
+    #jumbotron .jumbotron h1 span {
+        display: inline-block;
+    }
+    .btn-responsive {
+        padding:4px 9px;
+        font-size:90%;
+        line-height: 1.2;
+      }
+}
+@media (max-width: 992px) {}
+@media (min-width: 1200px) {}
+/*--- END MEDIA QUERIES ---*/
