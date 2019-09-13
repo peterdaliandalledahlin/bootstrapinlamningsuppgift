@@ -1,0 +1,302 @@
+<!--
+<?php
+
+  $result="";
+
+  if(isset($_POST['submit'])){
+    require 'phpmailer/PHPMailerAutoload.php';
+    $mail = new PHPmailer;
+
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='tls';
+    $mail->Username='peterdaliandalledahlin@gmail.com';
+    $mail->Password='*********'; // KOM IHÅG ATT SÄTTA RÄTT PASSWORD
+
+    $mail->setFrom($_POST['email'],$_POST['name']);
+    $mail->addAddress('peterdaliandalledahlin@gmail.com');
+    $mail->addReplyTo($_POST['email'],$_POST['name']);
+
+    $mail->isHTML(true);
+    $mail->Subject='Form Submission: '.$_POST['subject0'];
+    $mail->Body='<h1 align=center>Name:'.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'</h1>';
+
+    if(!$mail->send()){
+      $result="Something went wrong. Please try again.";
+    }
+    else{
+      $result="Thanks ".$_POST['name']." for contacting us. We'll get back to you soon!";
+    }
+  }
+
+?>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Equals Power | Power to success</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://kit.fontawesome.com/1416ee6cd5.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/preload.js"></script>
+</head>
+<body>
+  <button onclick="topFunction()" id="back_to_top_btn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<nav class="navbar sticky-top navbar-expand-md bg-light navbar-light justify-content-between" id="navBar">
+    <a class="navbar-brand" href="index.html"><img class="logotype" src="images/equals_logo_tilted_e.png" alt=""></a>
+    <!-- <button class="btn btn-success ml-auto">Always Show</button> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_equalspower">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbar_equalspower">
+        <ul class="navbar-nav text-right text-uppercase pt-3">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about_scroll">about</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact_scroll">contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">downloads</a>
+            </li>
+            <li class="nav-item ml-5">
+              <button class="nav-link btn btn-link" href="#" data-toggle="modal" data-target="#LogInModal"><i class="fas fa-sign-in-alt"></i><button>
+          </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<section id="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                    <img src="http://placehold.it/150x150" id="imgProfile" class="img-thumbnail" />
+                                    <div class="middle">
+                                        <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                                        <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                    </div>
+                                </div>
+                                <div class="userData ml-3">
+                                    <h2 class="d-block display-5"><a href="javascript:void(0);">Welcome Lorem Ipsum</a></h2>
+                                    <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
+                                    <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
+                                </div>
+                                <div class="ml-auto">
+                                    <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                        
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Firstname</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Lorem
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Lastname</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Ipsum
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Email</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                lorem@ipsum@loremipsum.net
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Password</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                ********
+                                            </div>
+                                        </div>
+                                            <hr />
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">City</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Loremtown
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Zipcode</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                123 45
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                    </div>
+                                    <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                        Facebook, Google, Twitter Account that are connected to this account
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="footer" class="text-light">
+      <div class="container pt-5">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <a href="#"><img class="logotype" src="images/logo_dark_background.png" alt=""></a>
+              <p>Contact details:</p>
+              <p>Håkan Johansson, CEO and founder</p>
+              <p>eQUALS Power AB</p>
+              <p>Bredsandsvägen 23, SE-749 48 Enköping</p>
+              <p>Sweden</p>
+              <p>Mobile: +46 70 534 43 73</p>
+              <p>E-mail: <a href="mailto:hakan.johansson@equalspower.se">info@eqls.se</a></p>
+            <!-- <ul class="list-unstyled quick-links">
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+            </ul> -->
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5 class="mt-5">Quick links</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="#navBar"><i class="fa fa-angle-double-right"></i>Home</a></li>
+              <li><a href="#about"><i class="fa fa-angle-double-right"></i>About</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i>Features</a></li>
+              <li><a href="#contact"><i class="fa fa-angle-double-right"></i>Contacts</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i>Download</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5 class="mt-5">Useful Links</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 1</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 2</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 3</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 4</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 5</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>      
+            </ul>
+          </div>
+          </hr>
+        </div>	
+        <div class="row pb-3">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p class="h6">&copy All right Reserved.<a class="text-green ml-2" href="https://www.equalspower.se" target="_blank">eQuals Power AB</a></p>
+          </div>
+          </hr>
+        </div>	
+      </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  // (function() {
+  //   'use strict';
+  //   window.addEventListener('load', function() {
+  //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  //     var forms = document.getElementsByClassName('needs-validation');
+  //     // Loop over them and prevent submission
+  //     var validation = Array.prototype.filter.call(forms, function(form) {
+  //       form.addEventListener('submit', function(event) {
+  //         if (form.checkValidity() === false) {
+  //           event.preventDefault();
+  //           event.stopPropagation();
+  //         }
+  //         form.classList.add('was-validated');
+  //       }, false);
+  //     });
+  //   }, false);
+  // })();
+  </script>
+
+</body>
+</html>

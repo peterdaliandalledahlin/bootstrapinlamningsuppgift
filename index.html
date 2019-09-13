@@ -1,0 +1,482 @@
+<!--
+<?php
+
+  $result="";
+
+  if(isset($_POST['submit'])){
+    require 'phpmailer/PHPMailerAutoload.php';
+    $mail = new PHPmailer;
+
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='tls';
+    $mail->Username='peterdaliandalledahlin@gmail.com';
+    $mail->Password='*********'; // KOM IHÅG ATT SÄTTA RÄTT PASSWORD
+
+    $mail->setFrom($_POST['email'],$_POST['name']);
+    $mail->addAddress('peterdaliandalledahlin@gmail.com');
+    $mail->addReplyTo($_POST['email'],$_POST['name']);
+
+    $mail->isHTML(true);
+    $mail->Subject='Form Submission: '.$_POST['subject0'];
+    $mail->Body='<h1 align=center>Name:'.$_POST['name'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['msg'].'</h1>';
+
+    if(!$mail->send()){
+      $result="Something went wrong. Please try again.";
+    }
+    else{
+      $result="Thanks ".$_POST['name']." for contacting us. We'll get back to you soon!";
+    }
+  }
+
+?>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Equals Power | Power to success</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://kit.fontawesome.com/1416ee6cd5.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/preload.js"></script>
+</head>
+<body>
+
+  <button onclick="topFunction()" id="back_to_top_btn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<nav class="navbar sticky-top navbar-expand-md bg-light navbar-light justify-content-between" id="navBar">
+
+      <a class="navbar-brand" href="#"><img class="logotype" src="images/equals_logo_tilted_e.png" alt=""></a>
+      <!-- <button class="btn btn-success ml-auto">Always Show</button> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_equalspower">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbar_equalspower">
+          <ul class="navbar-nav text-right text-uppercase pt-3">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about_scroll">about</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact_scroll">contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">downloads</a>
+            </li>
+            <li class="nav-item ml-5">
+              <button class="nav-link btn btn-link" href="#" data-toggle="modal" data-target="#LogInModal"><i class="fas fa-sign-in-alt"></i><button>
+          </li>
+          </ul>
+      </div>
+  </div>
+  </nav>
+<!--START MODAL-->
+<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please Login or Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Login</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Register</a>
+            <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <!-- START LOGIN FORM -->
+            <form action="profile.html" class="needs-validation" novalidate>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+              </div>
+              <!-- <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div> -->
+              <button type="submit" id="login_btn" class="btn btn-primary">Log In</button>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <!-- START REGISTRATION FORM -->
+            <form class="needs-validation" novalidate>
+              <div class="form-row">
+                <div class="col-6 mb-1">
+                  <label for="firstname">First name</label>
+                  <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First name" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-6 mb-1">
+                  <label for="lastname">Last name</label>
+                  <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last name" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="col-6 mb-1">
+                    <label for="email">Email</label>
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Email" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-6 mb-1">
+                    <label for="password">Password</label>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom03">City</label>
+                  <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="validationCustom05">Zip</label>
+                  <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit" id="register_btn">Register</button>
+            </form>
+          </div>
+          <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">contact</div> -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--END MODAL-->
+
+<!-- START SECTION JUMBOTRON-->
+  <section id="jumbotron">
+    <div class="jumbotron jumbotron-fluid text-left">
+        <div class="container pl-5">
+            <h1 class="display-2 mt-6"><span class="rotate" id="rotate">e</span><span class="quals text-dark">QUALS</span><span id="power_text" class="power text-dark">POWER</span></h1>
+            <p class="lead display-5 text-dark">How to save energy by using more electricity!</p>
+            <a class="btn btn-primary btn-lg" id="learn_more_btn" href="#" role="button">Learn more</a>
+        </div>
+    </div>
+  </section>
+<!-- END SECTION JUMBOTRON-->
+
+<!-- START SECTION CARDS-->
+  <section id="cards">
+      <div class="card-deck">
+        <div class="profile-card">
+          <div class="profile-sidebar">
+            <img class="profile-image" src="images/card1.jpg" alt="hakan johansson">
+            <!-- <ul class="social-list">
+              <li class="social-item"><a aria-label="instagram" class="social-link" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="social-item"><a aria-label="twitter" class="social-link" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="social-item"><a aria-label="facebook" class="social-link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul> -->
+          </div>
+          <div class="profile-main">
+            <h2 class="profile-name">The Power of the Sun</h2>
+            <p class="profile-position">Lorem ipsum dolor sit.</p>
+            <p class="profile-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quod suscipit non voluptatem eligendi delectus magnam rerum a facilis ullam.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-sidebar">
+            <img class="profile-image" src="images/card2.jpg" alt="hakan johansson">
+            <!-- <ul class="social-list">
+              <li class="social-item"><a aria-label="instagram" class="social-link" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="social-item"><a aria-label="twitter" class="social-link" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="social-item"><a aria-label="facebook" class="social-link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul> -->
+          </div>
+          <div class="profile-main">
+            <h2 class="profile-name">The Power of the Wind</h2>
+            <p class="profile-position">Lorem ipsum dolor sit.</p>
+            <p class="profile-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quod suscipit non voluptatem eligendi delectus magnam rerum a facilis ullam.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-sidebar">
+            <img class="profile-image" src="images/card3.jpg" alt="hakan johansson">
+            <!-- <ul class="social-list">
+              <li class="social-item"><a aria-label="instagram" class="social-link" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="social-item"><a aria-label="twitter" class="social-link" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="social-item"><a aria-label="facebook" class="social-link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul> -->
+          </div>
+          <div class="profile-main">
+            <h2 class="profile-name">The Power of Water</h2>
+            <p class="profile-position">Lorem ipsum dolor sit.</p>
+            <p class="profile-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quod suscipit non voluptatem eligendi delectus magnam rerum a facilis ullam.</p>
+          </div>
+        </div>
+      </div>
+<!-- END SECTION CARDS-->
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="card-deck text-center">
+            <div class="col-12 col-sm-12 col-md-4">
+              <div class="card bg-dark">
+                  <img class="card-img-top" src="images/card1.jpg" alt="sun power">
+                <div class="card-body shadow">
+                  <h5 class="card-title text-light">The Power of the Sun</h5>
+                  <p class="card-text text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus maxime distinctio commodi suscipit ut esse, tenetur nisi mollitia! Autem, enim!</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4">
+                <div class="card bg-dark">
+                    <img class="card-img-top" src="images/card2.jpg" alt="wind power">
+                <div class="card-body shadow">
+                  <h5 class="card-title text-light">The Power of the Wind</h5>
+                  <p class="card-text text-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus ex quis vitae velit et saepe, cumque expedita quo! Consectetur, dicta?</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4">
+              <div class="card bg-dark">
+                  <img class="card-img-top" src="images/card3.jpg" alt="water power">
+                <div class="card-body shadow">
+                  <h5 class="card-title text-light">The Power of the Water</h5>
+                  <p class="card-text text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione sapiente incidunt, laudantium delectus tempora voluptate praesentium est cupiditate.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div> -->
+  </section>
+
+  <div id="about_scroll"></div>
+  
+  <section id="about">
+    <div class="container">
+        <h4>About eQUALS Power AB</h4>
+        <div class="about_content">
+            <p>In September 2017 Hakan Johansson founded eQUALS Power AB. eQUALS Power AB is a consulting company acting across energy, power and infrastructure sectors.</p>
+            <p>2014 to September 2017 he was active in ABB Enterprise Software as Senior Specialist in Power Systems, Digitalization in Power Grids, Smart Grid Project Development and Consulting. Håkan joined ABB in 1983 and held several executive positions in the sales and marketing.</p>
+            <p>In 2009, Hakan became member of ABB’s Global Smart Grid Initiative responsible for Marketing, Market development, Project Development and Power systems studies. His main contribution has been on global deployment of energy system developments and implementation strategies to secure a stable and cost effective power system.</p>
+            <p>Hakan has a background from Power Systems Protective Relays, Control, Communication and SCADA, FACTS & HVDC, but has also been active in Robotics and Process Automation within the ABB group.</p>
+            <p>Hakan is an internationally recognized expert in his field. He has been involved in the design, development and implementation in most of the innovative and sustainable ABB Smart Grid projects. Håkan been in the board of directors of the Regional Task Force (RTF) within the Asian Development Bank (ADB) for Smart Grid / Smart Cities implementations. Hakan is also acting as advisor to governments and Power Utilities assisting in energy related topics mainly in Asia, Middle East and Africa.</p>
+        </div>
+        <div class="about_contact_box">
+            <p>Contact details:</p>
+            <p>Hakan Johansson, CEO and founder</p>
+            <p>eQUALS Power AB</p>
+            <p>Bredsandsvägen 23, SE-749 48 Enköping</p>
+            <p>Sweden</p>
+            <p>Mobile: +46 70 534 43 73</p>
+            <p>E-mail: <a href="mailto:hakan.johansson@equalspower.se">info@eqls.se</a></p>
+        </div>
+    </div>
+  </section>
+
+  <div id="slogan_scroll"></div>
+  
+  <section id="slogan">
+    <div class="container">
+        <h4>How to save energy by using more electricity?</h4>
+        <div class="about_content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sit, at laborum corrupti rem voluptate qui. Repellendus, obcaecati! Perferendis architecto suscipit ipsam soluta mollitia et cupiditate molestias, earum quia cumque!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem sapiente praesentium cupiditate veritatis nesciunt? Libero voluptates laboriosam blanditiis eveniet, impedit saepe aperiam laudantium iure minima magnam, consectetur debitis, perferendis aliquam tempore ex sequi tempora mollitia magni! Cupiditate tempora voluptatum odit minima omnis quam sunt saepe quos a ipsam odio iure in, illum cumque vitae tempore pariatur. Facere assumenda nisi modi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum culpa, labore voluptate quaerat fugiat beatae quidem laboriosam praesentium iusto, ex illo ducimus eveniet vero laudantium vel in! Nam aliquam architecto odio minima laudantium, suscipit consequuntur consequatur placeat officia tempora assumenda ratione nulla, cum dolores maxime laboriosam repellat similique vitae magni. Sit delectus nobis debitis porro nesciunt autem magni veniam? Incidunt eaque eveniet aliquid. Modi consequatur debitis eos rem laboriosam! Cumque illo sequi veritatis tempore ab. Asperiores, rerum ratione dignissimos doloribus error illo dolore numquam repellat id sit? Vitae, odio velit dolor amet ab voluptatem adipisci laborum, vel, odit assumenda autem!</p>
+        </div>
+    </div>
+  </section>
+
+  <div id="contact_scroll"></div>
+
+  <section id="contact">
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2">
+          <div class="contact-form">
+            <form action="mailto:peterdaliandalledahlin@gmail.com" enctype="text/plain" method="post" class="needs-validation" novalidate>
+              <h4>Please feel free to contact me</h4>            
+              <div class="row">
+                <div class="col-md-6 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name*" required="required"/>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name*" required="required"/>
+                  </div> 
+                </div>     
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Your Email*" required="required"/>
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" class="form-control" placeholder="Subject*" required="required"/>
+              </div>        
+              <div class="form-group">
+                <textarea name="message" rows="8" class="form-control" placeholder="Your Message*" required="Your Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary btn-block"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="footer" class="text-light">
+      <div class="container pt-5">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <a href="#"><img class="logotype" src="images/logo_dark_background.png" alt=""></a>
+              <p>Contact details:</p>
+              <p>Håkan Johansson, CEO and founder</p>
+              <p>eQUALS Power AB</p>
+              <p>Bredsandsvägen 23, SE-749 48 Enköping</p>
+              <p>Sweden</p>
+              <p>Mobile: +46 70 534 43 73</p>
+              <p>E-mail: <a href="mailto:hakan.johansson@equalspower.se">info@eqls.se</a></p>
+            <!-- <ul class="list-unstyled quick-links">
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+            </ul> -->
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5 class="mt-5">Quick links</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="#navBar"><i class="fa fa-angle-double-right"></i>Home</a></li>
+              <li><a href="#about"><i class="fa fa-angle-double-right"></i>About</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i>Features</a></li>
+              <li><a href="#contact"><i class="fa fa-angle-double-right"></i>Contacts</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i>Download</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5 class="mt-5">Useful Links</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 1</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 2</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 3</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 4</a></li>
+              <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>Company 5</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>      
+            </ul>
+          </div>
+          </hr>
+        </div>	
+        <div class="row pb-3">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p class="h6">&copy All right Reserved.<a class="text-green ml-2" href="https://www.equalspower.se" target="_blank">eQuals Power AB</a></p>
+          </div>
+          </hr>
+        </div>	
+      </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  // (function() {
+  //   'use strict';
+  //   window.addEventListener('load', function() {
+  //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  //     var forms = document.getElementsByClassName('needs-validation');
+  //     // Loop over them and prevent submission
+  //     var validation = Array.prototype.filter.call(forms, function(form) {
+  //       form.addEventListener('submit', function(event) {
+  //         if (form.checkValidity() === false) {
+  //           event.preventDefault();
+  //           event.stopPropagation();
+  //         }
+  //         form.classList.add('was-validated');
+  //       }, false);
+  //     });
+  //   }, false);
+  // })();
+  </script>
+
+</body>
+</html>
