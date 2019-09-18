@@ -149,10 +149,23 @@ body {
 /*--- END HEADER ---*/
 
 /*--- START MODAL ---*/
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    .header-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
 #login_btn, #register_btn {
     border: none;
     background: var(--abbred);
-    filter: brightness(80%)
+    a:hover {
+        filter: brightness(80%)
+    }
+    
 }
 /*--- END MODAL ---*/
 

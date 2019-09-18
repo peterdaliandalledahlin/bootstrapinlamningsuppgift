@@ -102,88 +102,113 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Please Login or Register</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="header-top">
+          <h5 class="modal-title" id="modal-label">Please Login or Register</h5>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="header-bottom">
+          <div id="wrong-email" class="alert alert-danger" style="display: none" role="alert">
+            Wrong email or password.
+          </div>
+          <div id="tip" class="alert alert-primary" style="display: none" role="alert">
+            Tip: Try example@example.com & MyPassword ;-)
+          </div>
+          <div id="email-format" class="alert alert-primary" style="display: none" role="alert">
+                You must enter a valid email adress!
+          </div>
+          <div id="register_info" class="alert alert-success" style="display: none" role="alert">
+              Thank you for register! Now  login with your credentials!
+          </div>
+          <div class="alert alert-warning my-5" role="alert">
+              All fields are required!
+          </div>
+        </div>
       </div>
       <div class="modal-body">
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Login</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Register</a>
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-home" aria-selected="true">Login</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-profile" aria-selected="false">Register</a>
             <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-home-tab">
             <!-- START LOGIN FORM -->
             <form action="profile.html" class="needs-validation" novalidate>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="login-email">Email address</label>
+                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                <label for="login-password">Password</label>
+                <input type="password" class="form-control" id="login-password" placeholder="Password" required>
               </div>
-              <!-- <div class="form-group form-check">
+              <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div> -->
-              <button type="submit" id="login_btn" class="btn btn-primary">Log In</button>
+                <label class="form-check-label" for="exampleCheck1">Remember Me!</label>
+              </div>
+              <a id="login_btn" class="btn btn-primary btn-lg btn-responsive text-light" role="button">Log In<span id="login_spinner" class="spinner-border spinner-border-sm mt-1 ml-2" style="width: 2rem; height: 2rem; display: none" role="status" aria-hidden="true"></span></a>
+              <!-- <button type="submit" id="login_btn" class="btn btn-primary">Log In
+                <span id="login_spinner" class="spinner-border spinner-border-sm mt-1 ml-2" style="display: none" role="status" aria-hidden="true"></span>
+              </button> -->
             </form>
           </div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-profile-tab">
             <!-- START REGISTRATION FORM -->
-            <form class="needs-validation" novalidate>
+            <form id="registration_form" class="needs-validation" novalidate>
               <div class="form-row">
                 <div class="col-6 mb-1">
                   <label for="firstname">First name</label>
                   <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First name" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                  <div class="invalid-feedback">Please provide a firstname.</div>
+                  <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-6 mb-1">
                   <label for="lastname">Last name</label>
                   <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last name" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                  <div class="invalid-feedback">Please provide a lastname.</div>
+                  <div class="valid-feedback">Looks good!</div>
                 </div>
               </div>
               <div class="form-row">
-                  <div class="col-6 mb-1">
-                    <label for="email">Email</label>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="Email" required>
-                    <div class="valid-feedback">
-                      Looks good!
-                    </div>
+                <div class="col-6 mb-1">
+                  <label for="register-email">Email</label>
+                  <input name="email" type="text" class="form-control" id="register-email" placeholder="Email" required>
+                  <div class="invalid-feedback">Please provide a valid emailadress.</div>
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-6 mb-1">
+                  <label for="register-password">Password</label>
+                  <input name="password" type="password" class="form-control" id="register-password" placeholder="Password" required>
+                  <div class="invalid-feedback">Please provide a password.</div>
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="col-12 mb-1">
+                    <label for="address">Address</label>
+                    <input name="email" type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+                    <div class="invalid-feedback">Please provide a valid address.</div>
+                    <div class="valid-feedback">Looks good!</div>
                   </div>
-                  <div class="col-6 mb-1">
-                    <label for="password">Password</label>
-                    <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
-                    <div class="valid-feedback">
-                      Looks good!
-                    </div>
-                  </div>
+
                 </div>
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label for="validationCustom03">City</label>
-                  <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid city.
-                  </div>
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                  <div class="invalid-feedback">Please provide a valid city.</div>
+                  <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="validationCustom05">Zip</label>
-                  <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid zip.
-                  </div>
+                  <label for="zipcode">Zip</label>
+                  <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Zip" required>
+                  <div class="invalid-feedback">Please provide a valid zipcode.</div>
+                  <div class="valid-feedback">Looks good!</div>
                 </div>
               </div>
               <div class="form-group">
@@ -197,14 +222,16 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-primary" type="submit" id="register_btn">Register</button>
+              <button class="btn btn-primary btn-responsive text-light" type="submit" id="register_btn">Register</button>
+              <!-- <a id="register_btn" type="submit" class="btn btn-primary btn-lg btn-responsive text-light" role="button">Register<span id="login_spinner" class="spinner-border spinner-border-sm mt-1 ml-2" style="display: none" role="status" aria-hidden="true"></span></a> -->
+
             </form>
           </div>
           <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">contact</div> -->
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
@@ -365,7 +392,7 @@
               <p>Bredsandsvägen 23, SE-749 48 Enköping</p>
               <p>Sweden</p>
               <p>Mobile: +46 70 534 43 73</p>
-              <p>E-mail: <a href="mailto:hakan.johansson@equalspower.se">info@eqls.se</a></p>
+              <p>E-mail: <a href="mailto:hakan.johansson@eqls.se">hakan.johansson@eqls.se</a></p>
             <!-- <ul class="list-unstyled quick-links">
               <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
               <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
@@ -401,7 +428,7 @@
               <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
               <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
               <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/in/h%C3%A5kan-johansson-048a003/"><i class="fab fa-linkedin"></i></a></li>
               <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>      
             </ul>
           </div>
@@ -421,27 +448,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
-
-<script>
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  // (function() {
-  //   'use strict';
-  //   window.addEventListener('load', function() {
-  //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  //     var forms = document.getElementsByClassName('needs-validation');
-  //     // Loop over them and prevent submission
-  //     var validation = Array.prototype.filter.call(forms, function(form) {
-  //       form.addEventListener('submit', function(event) {
-  //         if (form.checkValidity() === false) {
-  //           event.preventDefault();
-  //           event.stopPropagation();
-  //         }
-  //         form.classList.add('was-validated');
-  //       }, false);
-  //     });
-  //   }, false);
-  // })();
-  </script>
-
 </body>
 </html>

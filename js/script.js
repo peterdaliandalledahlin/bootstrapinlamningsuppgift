@@ -94,3 +94,94 @@ $(document).ready(function () {
       // }
   });
 });
+
+$('#navbar_equalspower').click(function (event) {
+
+  var _opened = $(".navbar-collapse").hasClass("navbar-collapse") && $(".navbar-collapse").hasClass("in");
+  if (_opened === true && !($(event.target).hasClass("navbar-toggle"))) {
+    $("button.navbar-toggle").click();
+  }
+  });
+
+  document.querySelector("#login_btn").addEventListener("click", function(event) {
+
+    let email = $("#login-email").val();
+    let password = $("#login-password").val();
+
+    let correctEmail = "example@example.com";
+    let correctPassword = "MyPassword";
+
+    if( validateEmail(email) ) {
+        $('#login_spinner').show();
+        if(email == correctEmail && password == correctPassword) {
+            event.preventDefault();
+            setTimeout(function() { window.location.href = "/profile.html"; }, 2000);
+        }
+    
+        else {
+            event.preventDefault();
+            setTimeout(function() { $('#tip').show(); $('#wrong-email').show(); $('#email-format').hide(); $('#login_spinner').hide() }, 2000);
+        }
+    } else {
+        event.preventDefault();
+        $('#email-format').show();
+        $('#login_spinner').hide();
+    }
+})
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+// document.querySelector("#register_btn").addEventListener("click", function(event) {
+
+//     event.preventDefault();
+//     $('#register_info').show();
+//     resetForm();
+//     setTimeout(function() { window.location.href = "/"; }, 3000);
+
+// })
+
+function resetForm() {
+  document.getElementById("registration_form").reset();
+}
+
+$('.alert').hide();
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+document.querySelector("#register_btn").addEventListener("click", function(event) {
+
+  event.preventDefault();
+
+  let firstname = $("#firstname").val();
+  let lastname = $("#lastname").val();
+  let email = $("#register-email").val();
+  let password = $('#register-password').val();
+  let address = $('#address').val();
+  let city = $("#city").val();
+  let zipcode = $("#zipcode").val();
+
+  if( firstname == "" || lastname == "" || email == "" || password == "" || address == "" || city == "" || zipcode == "" || !validateEmail(email)) {
+      $('.alert').show();
+      $('#tip').hide();
+      $('#wrong-email').hide();
+      $('#email-format').hide();
+      $('#register_info').hide();
+      $('.invalid-feedback').show();
+
+  } else {
+    $('.alert').hide();
+    $('#register_info').show();
+    $('.valid-feedback').show();
+    resetForm();
+    // setTimeout(function() { window.location.href = "/"; }, 3000);
+    setTimeout(function() { window.location.href = $('#LogInModal').modal('show'); }, 3000);
+      //window.location.href = "/profile.html";
+  }
+  
+})

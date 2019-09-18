@@ -1,4 +1,4 @@
-  //preload validation 
+  //preload form validation 
   (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -17,10 +17,10 @@
     }, false);
   })();
 
-  (function() {
-    'use strict';
-    var navBar = $("#navbar_equalspower");
-    navBar.on("click", "a", null, function () {
-        navBar.collapse('hide');
-    });
-  })();
+  // (function() {
+  //   'use strict';
+  //   var navBar = $("#navbar_equalspower");
+  //   navBar.on("click", "a", null, function () {
+  //       navBar.collapse('hide');
+  //   });
+  // })();
